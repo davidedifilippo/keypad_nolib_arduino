@@ -11,19 +11,19 @@ Nel programma si esegue la scansione rapida delle colonne del tastierino:
 
 Si impostano i piedini di colonna come OUTPUT e poi si mettono a 5V tramite l'istruzione digitalWrite.
 
-   for (int column = 0; column < numCols; column++)
+     for (int column = 0; column < numCols; column++)
      {
-        pinMode(colPins[column],OUTPUT);     // Setta i pin delle colonne come input
+       pinMode(colPins[column],OUTPUT);     // Setta i pin delle colonne come input
        digitalWrite(colPins[column],HIGH);  // Imposta le colonne a livello HIGH 
       }
 
 Si impostano i piedini di riga come input
 
-   for (int row = 0; row < numRows; row++)
-    {
+     for (int row = 0; row < numRows; row++)
+     {
       pinMode(rowPins[row],INPUT);       // Imposta i pin di riga come input
       digitalWrite(rowPins[row],HIGH);   // Abilita sui pin di riga i resistori di pull up 
-    }
+     }
 
 la cosa strana è che sembrerebbe di impostare la tensione sul piedino di uscita a livello alto. In effetti con i piedini impostati come ingresso esiste la possibilità di collegare il piedino a 5V attraverso una resistenza interna da 10KOhm.
 In questo modo però ogni volta che leggo la tensione sul piedino trovo HIGH.
