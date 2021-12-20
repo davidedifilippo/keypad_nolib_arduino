@@ -32,7 +32,38 @@ In questo modo però ogni volta che leggo la tensione sul piedino trovo HIGH.
 
 ## Fase di loop
 
-Partendo dalla prima colonna e si mettono a livello basso le tensioni di colonna tramite digitalWrite una per volta. Per la colonna c si legge lo stato delle varie righe r tramite digtalRead. Se una delle tensioni di riga è a livello basso è stato premuto il pulsante all'incrocio tra colonna c e riga r. 
+Nel loop la chiamata:
+
+     char key = getKey();
+     
+restituisce il carattere premuto dall'utente oppure il carattere nullo '\0'
+      
+       if( key != '\0') 
+       {   
+       Serial.print("Hai premuto: ");
+       Serial.println(key);
+      }
+Se il carattere è diverso dal carattere nullo viene stampato sulla seriale.
+
+## La funzione getKey()
+
+In questa fuznione si controlla se è stato premuto uno dei tasti.
+
+Tramite digitalWrite si mette a livello basso la colonna c del tastierino. 
+
+     for(int c = 0; c < numCols; c++)  digitalWrite(colPins[c],LOW); 
+
+Per la colonna c si legge lo stato delle varie righe r tramite digtalRead. 
+
+
+     for(int r = 0; r < numRows; r++)      // Scorro tutte le righe
+     {
+     if(digitalRead(rowPins[r]) == LOW)  // rilevo tensione bassa solo se il tasto in posizione r,c è stato premuto 
+     key = keymap[r][c];                 // Memorizzo quale sia il tasto premuto
+     }
+
+
+Se una delle tensioni di riga è a livello basso è stato premuto il pulsante all'incrocio tra colonna c e riga r. 
 
     // Mappa dei caratteri sul tastierino
     const char keymap[numRows][numCols] = 
@@ -42,4 +73,6 @@ Partendo dalla prima colonna e si mettono a livello basso le tensioni di colonna
        { '7', '8', '9' , 'C' } ,
        { '*', '0', '#' , 'D' }
     };
+    
+  Si recupera la lattera e si restituisce al chiamante.
 
