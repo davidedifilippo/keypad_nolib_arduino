@@ -9,10 +9,12 @@ Nel programma si esegue la scansione rapida delle colonne del tastierino:
 
 Si impostano i piedini utilizzati nelle righe e i piedini utilizzati nelle colonne
 
-      int numRows = 4;
-      int numCols = 4;
-      int colPins[4] = {2,3,4,5};
-      int rowPins[4] = {6,7,8,9};
+      const int numRows = 4;
+      const int numCols = 4;
+      int colPins[numRows] = {5,4,3,2};
+      int rowPins[numCols] = {6,7,8,9};
+
+in pratica la colPins[0] = 5, colPins[1] = 4, ecc.... 
 
 ## Fase di setup
 
@@ -33,7 +35,7 @@ Si impostano i piedini di riga come input
      }
 
 la cosa strana è che sembrerebbe di impostare la tensione sul piedino di uscita a livello alto. In effetti con i piedini impostati come ingresso esiste la possibilità di collegare il piedino a 5V attraverso una resistenza interna da 10KOhm.
-In questo modo però ogni volta che leggo la tensione sul piedino trovo HIGH.
+In questo modo però ogni volta che leggo la tensione sul piedino trovo HIGH (se nessun tasto viene premuto)
 
 
 
