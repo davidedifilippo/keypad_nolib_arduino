@@ -11,10 +11,8 @@ Nel programma si esegue la scansione rapida delle colonne del tastierino:
 
 Si impostano i piedini utilizzati nelle righe e i piedini utilizzati nelle colonne
 
-      const int numRows = 4;
-      const int numCols = 4;
-      int colPins[numRows] = {5,4,3,2};
-      int rowPins[numCols] = {6,7,8,9};
+      const int rowPins[numRows] = {9, 8, 7, 6};   // Pin di arduino connessi ai pin 1,2,3,4 delle righe del keypad
+      const int colPins[numCols] = {5, 4, 3, 2};   // Pin di arduino connessi ai pin 5,6,7,8 delle colonne del keypad
 
 in pratica la colPins[0] = 5, colPins[1] = 4, ecc.... 
 
