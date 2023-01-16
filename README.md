@@ -7,6 +7,11 @@ Nel programma si esegue la scansione rapida delle colonne del tastierino:
 - se il piedino r di input è basso allora è stato premuto il pulsante all'incrocio tra riga r e colonna c 
 - si stampa sulla seriale il carattere corrispondente
 
+      int numRows = 4;
+      int numCols = 4;
+      int colPins[4] = {2,3,4,5};
+      int rowPins[4] = {6,7,8,9};
+
 ## Fase di setup
 
 Si impostano i piedini di colonna come OUTPUT e poi si mettono a 5V tramite l'istruzione digitalWrite.
