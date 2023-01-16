@@ -7,6 +7,8 @@ Nel programma si esegue la scansione rapida delle colonne del tastierino:
 - se il piedino r di input è basso allora è stato premuto il pulsante all'incrocio tra riga r e colonna c 
 - si stampa sulla seriale il carattere corrispondente
 
+Si impostano i piedini utilizzati nelle righe e i piedini utilizzati nelle colonne
+
       int numRows = 4;
       int numCols = 4;
       int colPins[4] = {2,3,4,5};
